@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+	<!-- Console -->
+	<property name="CONSOLE_LOG_PATTERN" value="%d{HH:mm:ss.SSS} %clr(${LOG_LEVEL_PATTERN:-%5p}) [%X{USER:--}] %m%n"/>
+	<property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : [%X{USER:--}] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+	<!-- File -->
+	<property name="LOG_NAME" value="logs/demo"/>
+	<property name="LOG_FILE" value="${LOG_NAME}.log"/>
+	<include resource="file-appender.xml" />
+
+	<logger name="com.example.demo" level="DEBUG"/>
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

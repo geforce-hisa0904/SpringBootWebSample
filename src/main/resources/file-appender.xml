@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<included>
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${LOG_FILE}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_NAME}.%d{yyyyMMdd}.zip</fileNamePattern>
+			<!-- ログファイルの保存期間(日) -->
+			<MaxHistory>365</MaxHistory>
+		</rollingPolicy>
+	</appender>
+</included>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<Target>System.err</Target>
+		<encoder>
+			<pattern>common</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>common</pattern>
+		</encoder>
+		<file>logs/localhost_access_log.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/localhost_access_log.%d{yyyyMMdd}.zip</fileNamePattern>
+			<MaxHistory>365</MaxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender-ref ref="CONSOLE" />
+	<appender-ref ref="FILE" />
+</configuration>
